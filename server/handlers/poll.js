@@ -38,6 +38,7 @@ exports.createPoll = async (req, res, next) => {
       user,
       options: options.map(option => ({ option, votes: 0 })),
     });
+    user.polls = [];
     user.polls.push(poll._id);
     await user.save();
 
